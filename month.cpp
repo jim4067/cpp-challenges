@@ -13,30 +13,37 @@ int main ()
     std::cout <<"Enter the start of the week : ";
     std::cin >> start_of_week;
     
-    char tab = '\t';
     std::string which_day_tab;
-    if(start_of_week == 1){ //Monday
+    if(start_of_week == 1){
         which_day_tab = "\t";
-    } else if(start_of_week == 2){ 
+    } else if (start_of_week == 2){
         which_day_tab = "\t\t";
-    } else if(start_of_week == 3){
+    } else if (start_of_week == 3){
         which_day_tab = "\t\t\t";
-    } else if(start_of_week == 4){
+    }  else if (start_of_week == 4){
         which_day_tab = "\t\t\t\t";
-    } else if(start_of_week == 5){
+    } else if (start_of_week == 5){
         which_day_tab = "\t\t\t\t\t";
-    } else if(start_of_week == 6){
-         which_day_tab = "\t\t\t\t\t\t";
-    } 
+    } else if (start_of_week == 6){
+        which_day_tab = "\t\t\t\t\t\t";
+    }
 
-    for(int index = 1; index <= days_in_month; index ++ ){
-        if (index <= 1) {
+    std::string days_of_week[] = {"Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"};
+    for(int index = 0; index <= 6; index++){
+        std::cout << days_of_week[index] << '\t';
+        if(index == 6 ){
+            std::cout << std::endl;
+        }
+    }
+
+    for(int index = 1; index <= days_in_month; index++){
+        if (index == 1) {
             std::cout << which_day_tab << index << "\t";
         } else {
             std::cout << index << "\t";
         }
         if((index+start_of_week) % 7 == 0){
-            std::cout << '\n';
+            std::cout << std::endl;
         }
     }
     return 0;
